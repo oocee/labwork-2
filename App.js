@@ -1,20 +1,66 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import 'react-native-gesture-handler'; 
+ 
+import * as React from 'react'; 
+import { Button, View, Text } from 'react-native'; 
+ 
+import { NavigationContainer } from '@react-navigation/native'; 
+import { createStackNavigator } from '@react-navigation/stack'; 
+ 
+import FirstPage from './pages/FirstPage'; 
+import SecondPage from './pages/SecondPage'; 
+import ThirdPage from './pages/ThirdPage'; 
+ 
+const Stack = createStackNavigator(); 
+ 
+function App() { 
+  return ( 
+    <NavigationContainer> 
+      <Stack.Navigator initialRouteName="FirstPage"> 
+        <Stack.Screen 
+          name="FirstPage" 
+          component={FirstPage} 
+          options={{ 
+            title: 'First Page', //Set Header Title 
+            headerStyle: { 
+              backgroundColor: '#f4511e', //Set Header color 
+            }, 
+            headerTintColor: '#fff', //Set Header text color 
+            headerTitleStyle: { 
+              fontWeight: 'bold', //Set Header text style 
+            }, 
+          }} 
+        /> 
+        <Stack.Screen 
+          name="SecondPage" 
+          component={SecondPage} 
+          options={{ 
+            title: 'Second Page', //Set Header Title 
+            headerStyle: { 
+              backgroundColor: '#f4511e', //Set Header color 
+            }, 
+            headerTintColor: '#fff', //Set Header text color 
+            headerTitleStyle: { 
+              fontWeight: 'bold', //Set Header text style 
+            }, 
+          }} 
+        /> 
+        <Stack.Screen 
+          name="ThirdPage" 
+          component={ThirdPage} 
+          options={{ 
+            title: 'Third Page', //Set Header Title 
+            headerStyle: { 
+              backgroundColor: '#f4511e', //Set Header color 
+            }, 
+            headerTintColor: '#fff', //Set Header text color 
+            headerTitleStyle: { 
+              fontWeight: 'bold', //Set Header text style 
+            }, 
+          }} 
+        /> 
+      </Stack.Navigator> 
+    </NavigationContainer> 
+  ); 
+} 
+ 
+export default App; 
